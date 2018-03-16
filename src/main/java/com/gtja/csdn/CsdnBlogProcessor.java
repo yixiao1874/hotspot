@@ -1,5 +1,6 @@
 package com.gtja.csdn;
 
+import org.apache.http.HttpHost;
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;
 import us.codecraft.webmagic.Spider;
@@ -55,9 +56,9 @@ public class CsdnBlogProcessor implements PageProcessor {
 
         //http://www.xicidaili.com  http://www.kuaidaili.com
         // 从用户博客首页开始抓，开启5个线程，启动爬虫
-        //HttpClientDownloader downloader = new HttpClientDownloader();
-        //downloader.setProxyProvider(SimpleProxyProvider.from(new Proxy("122.114.31.177", 808)));
-        Spider.create(new CsdnBlogProcessor())//.setDownloader(downloader)
+        HttpClientDownloader downloader = new HttpClientDownloader();
+        downloader.setProxyProvider(SimpleProxyProvider.from(new Proxy("10.176.163.58", 3128)));
+        Spider.create(new CsdnBlogProcessor()).setDownloader(downloader)
                 .addUrl("http://blog.csdn.net/" + username)
                 .thread(5).run();
         System.out.println("文章总数为"+size);
