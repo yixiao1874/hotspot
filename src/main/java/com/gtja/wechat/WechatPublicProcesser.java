@@ -64,8 +64,8 @@ public class WechatPublicProcesser implements PageProcessor {
         // 操作页面元素
         elemUsername.clear();
         elemPassword.clear();
-        elemUsername.sendKeys("1499957726@qq.com");
-        elemPassword.sendKeys("Lcptbtp6573569");
+        elemUsername.sendKeys("*************@qq.com");
+        elemPassword.sendKeys("***********");
         //rememberMe.click();
         btn.click();
 
@@ -96,11 +96,11 @@ public class WechatPublicProcesser implements PageProcessor {
     public static void main(String[] args) {
         WechatPublicProcesser wechatPublicProcesser = new WechatPublicProcesser();
         wechatPublicProcesser.login();
-        Spider.create(wechatPublicProcesser)//.setDownloader(downloader)
+        /*Spider.create(wechatPublicProcesser)//.setDownloader(downloader)
                 .addUrl("https://mp.weixin.qq.com/cgi-bin/appmsg?" +
                         "token="+token+"&lang=zh_CN&f=json&ajax=1&random=0.9915912628321586" +
                         "&action=list_ex&begin=0&count=5&query=&fakeid=MjM5MDQ4MzU5NQ%3D%3D&type=9")
                 .thread(5)
-                .run();
+                .run();*/
     }
 }
