@@ -82,6 +82,6 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
 
-        firfoxDriverGetCookies("yixiao1874", "Lcptbtp6573569", "C:/bin/chromedriver.exe", "cookie.ser");
+        firfoxDriverGetCookies("username", "password", "C:/bin/chromedriver.exe", "cookie.ser");
     }
 }
