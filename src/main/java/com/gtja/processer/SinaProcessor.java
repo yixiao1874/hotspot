@@ -34,10 +34,7 @@ public class SinaProcessor implements PageProcessor {
         //http://news.sina.com.cn/c/2018-06-26/doc-ihencxtu6558276.shtml
         //xpath('//div[contains(@class,"a")]')   #它会取得所有class为a的元素
         //xpath('//div[contains(@class,"a") and contains(@class,"b")]') #它会取class同时有a和b的元素
-        List<String> targetUrls = page.getHtml().xpath("//div[@class='r-info2']//h2/@href").all();
-        for (String s:targetUrls){
-            System.out.println("++++++++++++++++++++++++++++++"+s);
-        }
+        List<String> targetUrls = page.getHtml().xpath("//div[contains(@class,\"r-info2\")]//h2/a/@href").all();
         page.addTargetRequests(targetUrls);
         //将下一页加入列表
         String currentUrl = page.getUrl().toString();
@@ -46,9 +43,8 @@ public class SinaProcessor implements PageProcessor {
         int thisPage = Character.getNumericValue(currentUrl.charAt(number));
         int nextPage = thisPage+1;
         System.out.println("下一页"+nextPage);
-        if (nextPage < 11){
+        if (nextPage < 10){
             String nextUrl = currentUrl.replace("&page="+thisPage,"&page="+nextPage);
-            System.out.println("++++++++++++++++"+nextUrl);
             page.addTargetRequest(nextUrl);
         }
     }
